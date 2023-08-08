@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="text-end p-3 bg-info">
+        <div class="text-start font-weight-bold">
+            {{#if user}}
+            <p class="">Welcome, {{user}}</p>
+            {{/if}}
+        </div>
+        <a href="/auth/logout" class="btn btn-primary">Logout</a>
+    </div>
+
+    {{#if title}}
+    <h1 class="text-center mt-5">{{title}}</h1>
+    {{/if}}
+    
+    <div class="container p-3">       
+        <table class="table table-dark table-striped table-bordered">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Account ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <th scope="row">{{accounts_id}}</th>
+                    <td>{{first_name}}</td>
+                    <td>{{last_name}}</td>
+                    <td>{{email}}</td>
+                    <td class=" text-center"><a class="btn btn-warning" href="/auth/updateform/{{email}}">Edit</a></td>
+                    <td class=" text-center"><a class="btn btn-danger" href="/auth/delete/{{accounts_id}}">Delete</a></td>
+                    <td class=" text-center"><a class="btn btn-light" href="/auth/skillset/{{accounts_id}}">View Skill</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>        
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>

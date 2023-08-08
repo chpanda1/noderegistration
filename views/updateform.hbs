@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container-fluid mt-5 w-50">
+        <div class="card" style="width: 35rem;">
+            <div class="card-header mb-2 text-center"><h1>Edit</h1></div>
+            <div class="card-body">
+                <form action="/auth/updateuser" method="post" class="form p-3">
+                    <label for="efirstname" class="form-label">Firstname</label>
+                    <input type="text" name="efirstname" id="efirstname" class="form-control mb-3" value="{{user.first_name}}">
+
+                    <label for="elastname" class="form-label">Lastname</label>
+                    <input type="text" name="elastname" id="elastname" class="form-control mb-3" value="{{user.last_name}}">
+
+                    <label for="eemail" class="form-label">Email</label>
+                    <input type="email" name="eemail" id="eemail" class="form-control mb-3" value="{{user.email}}">
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <a href="/auth/back" class="btn btn-danger">Cancel</a>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{#if message}}
+    <h4 class="alert alert-danger text-center">{{message}}</h4>
+    {{/if}}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>
